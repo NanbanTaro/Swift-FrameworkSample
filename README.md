@@ -1,5 +1,8 @@
 # Swift-FrameworkSample
 
+![](https://img.shields.io/badge/Swift-5.x-EB7243)
+![](https://img.shields.io/badge/Xcode-16.2-61DAFB)
+
 サンプルアプリとLibraryをWorkspaceで管理するサンプルプロジェクトです。
 
 ## サンプルアプリとLibrary管理workspace作成手順
