@@ -22,21 +22,6 @@
 		};
 /* End PBXAggregateTarget section */
 
-/* Begin PBXBuildFile section */
-		90F7AFB52E363E1A00A78053 /* FrameworkProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F7AFB12E363C6800A78053 /* FrameworkProject.framework */; };
-		90F7AFB62E363E1A00A78053 /* FrameworkProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90F7AFB12E363C6800A78053 /* FrameworkProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		90F7AFB02E363C6800A78053 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 90F7AFA62E363C6800A78053 /* FrameworkProject.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 90F7AF762E363C1800A78053;
-			remoteInfo = FrameworkProject;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		90F7AFB72E363E1A00A78053 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -44,7 +29,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				90F7AFB62E363E1A00A78053 /* FrameworkProject.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,7 +37,6 @@
 
 /* Begin PBXFileReference section */
 		90F7AF8C2E363C3400A78053 /* AppProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		90F7AFA62E363C6800A78053 /* FrameworkProject.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FrameworkProject.xcodeproj; path = ../FrameworkProject/FrameworkProject.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -69,7 +52,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F7AFB52E363E1A00A78053 /* FrameworkProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +61,6 @@
 		90F7AF832E363C3400A78053 = {
 			isa = PBXGroup;
 			children = (
-				90F7AFA62E363C6800A78053 /* FrameworkProject.xcodeproj */,
 				90F7AF8E2E363C3400A78053 /* AppProject */,
 				90F7AFB42E363E1A00A78053 /* Frameworks */,
 				90F7AF8D2E363C3400A78053 /* Products */,
@@ -90,14 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				90F7AF8C2E363C3400A78053 /* AppProject.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		90F7AFAD2E363C6800A78053 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				90F7AFB12E363C6800A78053 /* FrameworkProject.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,12 +138,6 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 90F7AF8D2E363C3400A78053 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 90F7AFAD2E363C6800A78053 /* Products */;
-					ProjectRef = 90F7AFA62E363C6800A78053 /* FrameworkProject.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				90F7AF8B2E363C3400A78053 /* AppProject */,
@@ -178,16 +145,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		90F7AFB12E363C6800A78053 /* FrameworkProject.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = FrameworkProject.framework;
-			remoteRef = 90F7AFB02E363C6800A78053 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		90F7AF8A2E363C3400A78053 /* Resources */ = {
