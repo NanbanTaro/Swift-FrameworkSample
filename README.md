@@ -1,44 +1,77 @@
+![](https://img.shields.io/badge/Swift-6.x-EB7243)
+![](https://img.shields.io/badge/Xcode-27.0-61DAFB)
+
+
 # Swift-FrameworkSample
 
-![](https://img.shields.io/badge/Swift-5.x-EB7243)
-![](https://img.shields.io/badge/Xcode-16.2-61DAFB)
+サンプルアプリと Framework を Workspace で管理し、配布用 XCFramework を生成するサンプルです。
 
-サンプルアプリとLibraryをWorkspaceで管理するサンプルプロジェクトです。
+## 開発環境
 
-## サンプルアプリとLibrary管理workspace作成手順
+- macOS 27.0
+- Xcode 27.0（Build 27A266a）
+- Swift 6.4（Xcode 同梱）
+- Swift Language Mode：Swift 6
 
-### workspaceの作成
+## 構成
 
-1. workspaceを作成
-1. workspaceと同階層にAppとLibraryを作成
-1. workspaceを開く
-1. Project Navigatorを右クリックし、「Add File to ~~」で作成したAppとLibraryの.xcodeprojを追加する
+```text
+Swift-FrameworkSample
+├── Sample.xcworkspace
+├── AppProject
+│   ├── AppProject.xcodeproj
+│   └── App
+├── FrameworkProject
+│   ├── FrameworkProject.xcodeproj
+│   ├── Sources
+│   └── Tests
+├── Scripts
+│   └── build-xcframework.sh
+└── .build
+    └── FrameworkProject.xcframework
+```
 
-### サンプルアプリにLibraryの追加手順
+`.build` はビルド時に作成される Git 管理対象外のディレクトリです。
 
-1. workspaceのAppターゲットを選択
-1. Generalの「Frameworks, Libraries and Embedded Content」に追加したLibraryを追加
-1. サンプルアプリから利用可能状態になる
+## 開発
 
-## xcFramework作成
+1. `Sample.xcworkspace` を開く
+
+### サンプルアプリのビルド
+
+2. `AppProject` Scheme で実行
+3. サンプルアプリのビルド
+
+サンプルアプリは、XCFrameworkではなくFrameworkを参照します。
+
+### Frameworkのビルド
+
+2. `FrameworkProject` Scheme で実行
+3. Frameworkのビルド
+
+Command Line Tools が選択されている場合は、利用する Xcode のパスを指定してください。この環境では次の指定で検証しています。
 
 ```bash
-xcodebuild -workspace ./WeatherApp.xcworkspace \
-    -scheme FrameworkProject \
-    -configuration Release \
-    -sdk iphonesimulator \
-    BUILD_DIR=".build" BUILD_ROOT=".build" clean build \
-    BUILD_LIBRARY_FOR_DISTRIBUTION=YES
-
-xcodebuild -workspace ./WeatherApp.xcworkspace \
-    -scheme FrameworkProject \
-    -configuration Release \
-    -sdk iphoneos \
-    BUILD_DIR=".build" BUILD_ROOT=".build" clean build \
-    BUILD_LIBRARY_FOR_DISTRIBUTION=YES
-
-xcodebuild -create-xcframework \
-    -framework "FrameworkProject/.build/Release-iphoneos/FrameworkProject.framework" \
-    -framework "FrameworkProject/.build/Release-iphonesimulator/FrameworkProject.framework" \
-    -output "FrameworkProject/.build/FrameworkProject.xcframework"
+export DEVELOPER_DIR=/Applications/Xcode-27.0.0.app/Contents/Developer
 ```
+
+## XCFramework の生成
+
+### 1. スクリプトからの生成
+
+```bash
+./Scripts/build-xcframework.sh
+```
+
+任意の作業ディレクトリから実行できます。iOS 実機用と Simulator 用を Release で Archive し、`.build/FrameworkProject.xcframework` にまとめます。配布ビルドでは下記で指定しています。
+- `BUILD_LIBRARY_FOR_DISTRIBUTION=YES`
+- `SKIP_INSTALL=NO`
+- `CODE_SIGNING_ALLOWED=NO`
+
+### 2. `BuildXCFramework` Schemeでの生成
+
+`BuildXCFramework` ターゲットも同じスクリプトを呼び出します。
+
+### 解説記事
+
+TBD

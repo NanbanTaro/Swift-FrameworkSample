@@ -6,12 +6,43 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		907745A92E78F51B006941F5 /* BuildXCFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 907745AA2E78F51B006941F5 /* Build configuration list for PBXAggregateTarget "BuildXCFramework" */;
+			buildPhases = (
+				907745AD2E78F7F5006941F5 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = BuildXCFramework;
+			packageProductDependencies = (
+			);
+			productName = BuildXCFramework;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		B10000000000000000000003 /* FrameworkProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F7AF762E363C1800A78053 /* FrameworkProject.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		900583FF305F9DF5001C7AA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90F7AF6D2E363C1800A78053 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90F7AF752E363C1800A78053;
+			remoteInfo = FrameworkProject;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		90F7AF762E363C1800A78053 /* FrameworkProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FrameworkProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10000000000000000000002 /* FrameworkProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = FrameworkProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		90F7AF7D2E363C1800A78053 /* Exceptions for "FrameworkProject" folder in "FrameworkProject" target */ = {
+		B1000000000000000000000B /* Exceptions for "Sources" folder in "FrameworkProject" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			publicHeaders = (
 				FrameworkProject.h,
@@ -21,12 +52,17 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		90F7AF782E363C1800A78053 /* FrameworkProject */ = {
+		90F7AF782E363C1800A78053 /* Sources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				90F7AF7D2E363C1800A78053 /* Exceptions for "FrameworkProject" folder in "FrameworkProject" target */,
+				B1000000000000000000000B /* Exceptions for "Sources" folder in "FrameworkProject" target */,
 			);
-			path = FrameworkProject;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B10000000000000000000001 /* Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -39,13 +75,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B10000000000000000000005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000000000000000000003 /* FrameworkProject.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		90F7AF6C2E363C1800A78053 = {
 			isa = PBXGroup;
 			children = (
-				90F7AF782E363C1800A78053 /* FrameworkProject */,
+				B10000000000000000000001 /* Tests */,
+				90F7AF782E363C1800A78053 /* Sources */,
 				90F7AF772E363C1800A78053 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +98,7 @@
 		90F7AF772E363C1800A78053 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				B10000000000000000000002 /* FrameworkProjectTests.xctest */,
 				90F7AF762E363C1800A78053 /* FrameworkProject.framework */,
 			);
 			name = Products;
@@ -85,7 +131,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				90F7AF782E363C1800A78053 /* FrameworkProject */,
+				90F7AF782E363C1800A78053 /* Sources */,
 			);
 			name = FrameworkProject;
 			packageProductDependencies = (
@@ -94,6 +140,26 @@
 			productReference = 90F7AF762E363C1800A78053 /* FrameworkProject.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		B10000000000000000000007 /* FrameworkProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B10000000000000000000008 /* Build configuration list for PBXNativeTarget "FrameworkProjectTests" */;
+			buildPhases = (
+				B10000000000000000000004 /* Sources */,
+				B10000000000000000000005 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B10000000000000000000006 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B10000000000000000000001 /* Tests */,
+			);
+			name = FrameworkProjectTests;
+			productName = FrameworkProjectTests;
+			productReference = B10000000000000000000002 /* FrameworkProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -101,8 +167,11 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1620;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
+					907745A92E78F51B006941F5 = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					90F7AF752E363C1800A78053 = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -117,12 +186,16 @@
 			);
 			mainGroup = 90F7AF6C2E363C1800A78053;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 90F7AF772E363C1800A78053 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				B10000000000000000000007 /* FrameworkProjectTests */,
 				90F7AF752E363C1800A78053 /* FrameworkProject */,
+				907745A92E78F51B006941F5 /* BuildXCFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -137,6 +210,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		907745AD2E78F7F5006941F5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SRCROOT/../Scripts/build-xcframework.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		90F7AF722E363C1800A78053 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -145,13 +239,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B10000000000000000000004 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B10000000000000000000006 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90F7AF752E363C1800A78053 /* FrameworkProject */;
+			targetProxy = 900583FF305F9DF5001C7AA5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		907745AB2E78F51B006941F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		907745AC2E78F51B006941F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		90F7AF7F2E363C1800A78053 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -175,7 +303,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -184,6 +312,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -207,7 +336,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -271,6 +400,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -330,6 +460,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -337,9 +468,52 @@
 			};
 			name = Release;
 		};
+		B10000000000000000000009 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/Frameworks",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanbantaro.FrameworkProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B1000000000000000000000A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/Frameworks",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanbantaro.FrameworkProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		907745AA2E78F51B006941F5 /* Build configuration list for PBXAggregateTarget "BuildXCFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				907745AB2E78F51B006941F5 /* Debug */,
+				907745AC2E78F51B006941F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		90F7AF702E363C1800A78053 /* Build configuration list for PBXProject "FrameworkProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -354,6 +528,15 @@
 			buildConfigurations = (
 				90F7AF7F2E363C1800A78053 /* Debug */,
 				90F7AF802E363C1800A78053 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B10000000000000000000008 /* Build configuration list for PBXNativeTarget "FrameworkProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B10000000000000000000009 /* Debug */,
+				B1000000000000000000000A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

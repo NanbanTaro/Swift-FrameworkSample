@@ -6,21 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		90F7AFB82E36412000A78053 /* BuildXCFramework */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 90F7AFB92E36412000A78053 /* Build configuration list for PBXAggregateTarget "BuildXCFramework" */;
-			buildPhases = (
-				90F7AFBC2E36415400A78053 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = BuildXCFramework;
-			packageProductDependencies = (
-			);
-			productName = Aggregate;
-		};
-/* End PBXAggregateTarget section */
+/* Begin PBXBuildFile section */
+		A10000000000000000000002 /* FrameworkProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10000000000000000000001 /* FrameworkProject.framework */; };
+		A10000000000000000000003 /* FrameworkProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A10000000000000000000001 /* FrameworkProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		90F7AFB72E363E1A00A78053 /* Embed Frameworks */ = {
@@ -29,6 +18,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A10000000000000000000003 /* FrameworkProject.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,12 +27,13 @@
 
 /* Begin PBXFileReference section */
 		90F7AF8C2E363C3400A78053 /* AppProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000000000000000000001 /* FrameworkProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FrameworkProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		90F7AF8E2E363C3400A78053 /* AppProject */ = {
+		90F7AF8E2E363C3400A78053 /* App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = AppProject;
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10000000000000000000002 /* FrameworkProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +53,7 @@
 		90F7AF832E363C3400A78053 = {
 			isa = PBXGroup;
 			children = (
-				90F7AF8E2E363C3400A78053 /* AppProject */,
+				90F7AF8E2E363C3400A78053 /* App */,
 				90F7AFB42E363E1A00A78053 /* Frameworks */,
 				90F7AF8D2E363C3400A78053 /* Products */,
 			);
@@ -78,6 +70,7 @@
 		90F7AFB42E363E1A00A78053 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A10000000000000000000001 /* FrameworkProject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -99,7 +92,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				90F7AF8E2E363C3400A78053 /* AppProject */,
+				90F7AF8E2E363C3400A78053 /* App */,
 			);
 			name = AppProject;
 			packageProductDependencies = (
@@ -116,12 +109,9 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1620;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
 					90F7AF8B2E363C3400A78053 = {
-						CreatedOnToolsVersion = 16.2;
-					};
-					90F7AFB82E36412000A78053 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
@@ -141,7 +131,6 @@
 			projectRoot = "";
 			targets = (
 				90F7AF8B2E363C3400A78053 /* AppProject */,
-				90F7AFB82E36412000A78053 /* BuildXCFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -155,27 +144,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		90F7AFBC2E36415400A78053 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n# ファイル権限エラーが出るため実行できない\n# READMEで手動手順を記載済み\n\n# ビルド用パス設定\n#BUILD_DIR=\"${SRCROOT}/build\"\n\n# 実機用ビルド\n#xcodebuild -workspace ../WeatherApp.xcworkspace \\\n  -scheme FrameworkProject \\\n  -configuration Release \\\n  -sdk iphoneos \\\n  BUILD_DIR=\"$BUILD_DIR\" BUILD_ROOT=\"$BUILD_DIR\" clean build \\\n  BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# シミュレータ用ビルド\n#xcodebuild -workspace ../WeatherApp.xcworkspace \\\n  -scheme FrameworkProject \\\n  -configuration Release \\\n  -sdk iphonesimulator \\\n  BUILD_DIR=\"$BUILD_DIR\" BUILD_ROOT=\"$BUILD_DIR\" clean build \\\n  BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# xcframework作成\n#xcodebuild -create-xcframework \\\n  -framework \"$BUILD_DIR/Release-iphoneos/FrameworkProject.framework\" \\\n  -framework \"$BUILD_DIR/Release-iphonesimulator/FrameworkProject.framework\" \\\n  -output \"$BUILD_DIR/FrameworkProject.xcframework\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		90F7AF882E363C3400A78053 /* Sources */ = {
@@ -246,6 +214,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -302,6 +271,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -314,7 +284,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AppProject/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -330,7 +300,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nanbantaro.AppProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -342,7 +312,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AppProject/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -358,24 +328,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nanbantaro.AppProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		90F7AFBA2E36412000A78053 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		90F7AFBB2E36412000A78053 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -396,15 +350,6 @@
 			buildConfigurations = (
 				90F7AF9B2E363C3500A78053 /* Debug */,
 				90F7AF9C2E363C3500A78053 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		90F7AFB92E36412000A78053 /* Build configuration list for PBXAggregateTarget "BuildXCFramework" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				90F7AFBA2E36412000A78053 /* Debug */,
-				90F7AFBB2E36412000A78053 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
