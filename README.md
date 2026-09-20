@@ -72,6 +72,6 @@ export DEVELOPER_DIR=/Applications/Xcode-27.0.0.app/Contents/Developer
 
 `BuildXCFramework` ターゲットも同じスクリプトを呼び出します。
 
-### 解説記事
+## 解説記事
 
-TBD
+https://qiita.com/RIKI_2525/items/8d6c90e6ab838146ab58
